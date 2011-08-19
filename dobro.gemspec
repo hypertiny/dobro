@@ -20,8 +20,8 @@ Gem::Specification.new do |s|
   }
   s.require_paths = ['lib']
 
-  s.add_runtime_dependency     'rails',           '>= 3.1.0.rc5'
-  s.add_runtime_dependency     'decent_exposure', '>= 1.0.1'
+  s.add_runtime_dependency     'rails',           '~> 3.1.0rc1'
+  s.add_runtime_dependency     'decent_exposure', '~> 1.0'
 
   s.add_development_dependency 'rspec-rails', '2.6.1'
   s.add_development_dependency 'capybara',    '0.4.1.2'
