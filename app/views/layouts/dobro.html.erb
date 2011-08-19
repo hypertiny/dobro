@@ -18,8 +18,12 @@
         </header>
 
         <ul class="records">
-          <% Dobro.resources.each do |resource| %>
-            <li class="record"><%= resource.to_s.titleize %></li>
+          <% Dobro.resources.each do |res| %>
+            <li class="record">
+              <%= link_to res, :class => (resource == res && 'selected') do %>
+                <h4><%= res.to_s.titleize %></h4>
+              <% end %>
+            </li>
           <% end %>
         </ul>
       </section>
