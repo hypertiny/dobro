@@ -3,6 +3,7 @@ class Dobro::Engine < Rails::Engine
 
   isolate_namespace ::Dobro
 
+  paths['app/assets']      << 'app/assets'
   paths['app/controllers'] << 'app/controllers'
   paths['app/views']       << 'app/views'
 end
