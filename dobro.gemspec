@@ -5,7 +5,7 @@ require "dobro/version"
 Gem::Specification.new do |s|
   s.name        = 'dobro'
   s.version     = Dobro::VERSION
-  s.authors     = ['Paul Campbell', 'Pat Allan']
+  s.authors     = ['Brian Flanagan', 'Paul Campbell', 'Pat Allan']
   s.email       = ['pat@freelancing-gods.com']
   s.homepage    = 'http://github.com/hypertiny/dobro'
   s.summary     = %q{Simple, clean Rails admin interface}
