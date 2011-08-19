@@ -8,7 +8,7 @@
 
   <body>
     <header id="h1">
-      <h1>Dobro</h1>
+      <h1><%= link_to 'Dobro', root_path %></h1>
     </header>
 
     <section class="body">
@@ -33,7 +33,7 @@
           <h3><%= plural_class.titleize %></h3>
           <nav>
             <ul>
-              <li><%= link_to "New #{singular_class}", [:new, singular_reference.to_sym] %></li>
+              <li><%= link_to "New #{singular_class}", [:new, singular_reference.to_sym], :class => 'new' %></li>
             </ul>
           </nav>
         </header>

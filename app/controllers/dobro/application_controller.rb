@@ -1,7 +1,7 @@
 class Dobro::ApplicationController < Dobro.controller_base
   layout 'dobro'
 
-  expose(:resource)           { params[:resource].to_sym }
+  expose(:resource)           { default_resource.to_sym }
   expose(:singular_class)     { singular_reference.capitalize.constantize }
   expose(:plural_class)       { resource.to_s.capitalize }
   expose(:singular_reference) { resource.to_s.singularize }
@@ -33,5 +33,11 @@ class Dobro::ApplicationController < Dobro.controller_base
   def destroy
     current_record.destroy
     redirect_to resource
+  end
+
+  private
+
+  def default_resource
+    params[:resource] || Dobro.resources.first
   end
 end
