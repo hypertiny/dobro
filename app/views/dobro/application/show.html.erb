@@ -1,0 +1,21 @@
+<header class="h2">
+  <h2><%= current_record.identifier %></h2>
+
+  <nav>
+    <ul>
+      <li>
+        <%= link_to 'Edit', [:edit, current_record], :class => 'edit' %>
+      </li>
+      <li>
+        <%= link_to 'Delete', [:delete, current_record], :class => 'cancel' %>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<dl>
+  <% singular_class.column_names.each do |column| %>
+    <dt><%= column.titleize %></dt>
+    <dd><%= current_record.attributes[column] %></dd>
+  <% end %>
+</dl>

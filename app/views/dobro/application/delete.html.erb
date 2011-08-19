@@ -1,0 +1,5 @@
+<%= form_for current_record, :html => {:method => :delete} do |f| %>
+  <p>Are you sure you want to delete this record? This cannot be undone.</p>
+
+  <%= f.submit 'Confirm' %>
+<% end %>

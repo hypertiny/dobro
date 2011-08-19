@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dobro</title>
+  </head>
+
+  <body>
+    <header id="h1">
+      <h1>Dobro</h1>
+    </header>
+
+    <section class="body">
+      <section class="selector">
+        <header class="h3">
+          <h3>Sections</h3>
+        </header>
+
+        <ul class="records">
+          <% Dobro.resources.each do |resource| %>
+            <li class="record"><%= resource.to_s.titleize %></li>
+          <% end %>
+        </ul>
+      </section>
+
+      <section class="selector">
+        <header class="h3">
+          <h3><%= plural_class.titleize %></h3>
+          <nav>
+            <ul>
+              <li><%= link_to "New #{singular_class}", [:new, singular_reference.to_sym] %></li>
+            </ul>
+          </nav>
+        </header>
+
+        <ul class="records">
+          <% records.each do |record| %>
+            <li class="record"><h5><%= link_to record.identifier, record %></h5></li>
+          <% end %>
+        </ul>
+      </section>
+
+      <section class="view">
+        <div class="action">
+          <%= yield %>
+        </div>
+      </section>
+    </section>
+
+    <footer>
+      <p>Dobro</p>
+    </footer>
+  </body>
+</html>
