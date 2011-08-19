@@ -1,0 +1,421 @@
+@import 'dobro/reset';
+@import 'dobro/fonts';
+@import 'dobro/colours';
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: #eee;
+  font-size: 13px;
+  @include text;
+}
+
+a, a:link, a:visited {
+  text-decoration: none;
+}
+
+header, footer, .body {
+  overflow: hidden;
+  clear: both;
+  margin: 0 auto 0 0;
+}
+
+// form elements
+
+input, textarea, select, button {
+  @include text;
+}
+
+input[type='text'], input[type='password'], input[type='email'] {
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  font-size: 13px;
+  padding: 3px 6px;
+  background: #fff url("<%= asset_path 'dobro/input-shade.gif' %>") left top repeat-x;
+  &:focus {
+    border: 1px solid #bbb;
+    background-image: url("<%= asset_path 'dobro/input-shade-focus.gif' %>");
+  }
+}
+
+textarea {
+  width: 360px;
+  height: 10em;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  font-size: 13px;
+  padding: 3px 6px;
+  background: #fff url("<%= asset_path 'dobro/input-shade.gif' %>") left top repeat-x;
+  &:focus {
+    border: 1px solid #bbb;
+    background-image: url("<%= asset_path 'dobro/input-shade-focus.gif' %>");
+  }
+}
+
+input[type="submit"], button {
+  color: #333;
+  text-shadow: 0 1px 0 #ddd;
+  border: 1px solid #b0b0b0;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  font-size: 13px;
+  padding: 3px 6px;
+  background: #cacaca;
+  background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(0.0, #bfbfbf),
+      color-stop(0.75, #ccc)
+  );
+  background-image: -moz-linear-gradient(
+      center bottom,
+      #bfbfbf 0%,
+      #ccc 75%
+  );
+  &:hover {
+    border: 1px solid #aaa;
+    cursor: pointer;
+    background: #cacaca;
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.0, #afafaf),
+        color-stop(0.75, #bfbfbf)
+    );
+    background-image: -moz-linear-gradient(
+        center bottom,
+        #afafaf 0%,
+        #bfbfbf 75%
+    );
+  }
+  &:active {
+    color: #111;
+    text-shadow: 0 1px 0 #ccc;
+    border: 1px solid #888;
+    cursor: pointer;
+    background: #cacaca;
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.0, #999),
+        color-stop(0.75, #aaa)
+    );
+    background-image: -moz-linear-gradient(
+        center bottom,
+        #999 0%,
+        #aaa 75%
+    );
+  }
+}
+
+// header
+
+header#h1 {
+  background: #ddd;
+  border-bottom: 1px solid #ccc;
+  a, a:link, a:visited {
+    color: #666;
+    text-shadow: 0 1px 0 #f9f9f9;
+    &:hover {
+      color: #333;
+    }
+  }
+  h1 {
+    float: left;
+    clear: left;
+    a, a:link, a:visited {
+      display: block;
+      padding: 10px;
+      font-weight: bold;
+      color: #333;
+      text-shadow: 0 1px 0 #fff;
+    }
+  }
+  nav {
+    float: right;
+    clear: right;
+    ul {
+      list-style: none;
+      float: right;
+      li {
+        float: left;
+        a, a:link, a:visited {
+          display: block;
+          padding: 10px;
+        }
+      }
+    }
+  }
+}
+
+header.h2 {
+  overflow: hidden;
+  clear: both;
+  margin: -10px -10px 10px;
+  padding: 10px;
+  background: #fafafa;
+  border-bottom: 1px solid #eee;
+  h2 {
+    float: left;
+    color: #333;
+    text-shadow: 0 1px 0 #fff;
+  }
+  nav {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    ul {
+      list-style: none;
+      float: right;
+      li {
+        float: left;
+        padding: 0 0 0 5px;
+        a, a:link, a:visited {
+          display: block;
+          opacity: .125;
+          text-indent: -9999px;
+          overflow: hidden;
+          width: 16px;
+          height: 16px;
+          background-position: center center;
+          background-color: transparent;
+          background-repeat: no-repeat;
+          &.new {
+            background-image: url("<%= asset_path 'dobro/icons/plus.png' %>");
+          }
+          &.cancel {
+            background-image: url("<%= asset_path 'dobro/icons/x.png' %>");
+          }
+          &.edit {
+            background-image: url("<%= asset_path 'dobro/icons/pencil.png' %>");
+          }
+          &:hover {
+            opacity: .25;
+          }
+          &:active {
+            opacity: .35;
+          }
+        }
+      }
+    }
+  }
+}
+
+header.h3 {
+  position: relative;
+  padding: 10px;
+  background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(0.0, #f3f3f3),
+      color-stop(0.75, #fafafa)
+  );
+  background-image: -moz-linear-gradient(
+      center bottom,
+      #f3f3f3 0%,
+      #fafafa 75%
+  );
+  h3 {
+    color: #333;
+    text-shadow: 0 1px 0 #fff;
+  }
+  nav {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    ul {
+      list-style: none;
+      float: right;
+      li {
+        float: left;
+        a, a:link, a:visited {
+          opacity: .125;
+          display: block;
+          text-indent: -9999px;
+          overflow: hidden;
+          width: 16px;
+          height: 16px;
+          background-position: center center;
+          background-color: transparent;
+          background-repeat: no-repeat;
+          &.new {
+            background-image: url("<%= asset_path 'dobro/icons/plus.png' %>");
+          }
+          &.cancel {
+            background-image: url("<%= asset_path 'dobro/icons/x.png' %>");
+          }
+          &.edit {
+            background-image: url("<%= asset_path 'dobro/icons/pencil.png' %>");
+          }
+          &:hover {
+            opacity: .25;
+          }
+          &:active {
+            opacity: .35;
+          }
+        }
+      }
+    }
+  }
+}
+
+// footer
+
+footer {
+  background: #eee;
+  border-top: 1px solid #ddd;
+  a, a:link, a:visited {
+    color: #666;
+    text-shadow: 0 1px 0 #f9f9f9;
+    &:hover {
+      color: #333;
+    }
+  }
+  p {
+    padding: 10px;
+    text-align: right;
+  }
+}
+
+// body
+
+.body {
+  position: relative;
+  background: #fff;
+  height: 80%;
+  .selector {
+    float: left;
+    width: 18%;
+    height: 100%;
+    overflow: auto;
+  }
+  .view {
+    float: left;
+    width: 64%;
+    height: 100%;
+    overflow: auto;
+  }
+}
+
+// selector
+
+.selector {
+  height: 100%;
+  background: #f9f9f9 url("<%= asset_path 'dobro/ridge-border.gif' %>") right top repeat-y;
+  header {
+    border-right: 1px solid #ddd;
+  }
+  ul.records {
+    border-right: 1px solid #ddd;
+  }
+}
+
+// action
+
+.view {
+  .action {
+    overflow: auto;
+    clear: both;
+    padding: 10px;
+    dl {
+      padding: 10px;
+      max-width: 480px;
+      font-size: 12px;
+      line-height: 21px;
+      dt {
+        width: 20%;
+        float: left;
+        clear: left;
+        font-weight: bold;
+        color: #999;
+      }
+      dd {
+        width: 80%;
+        float: left;
+        clear: right;
+      }
+    }
+  }
+  form {
+    padding: 10px;
+    fieldset {
+      max-width: 480px;
+      font-size: 12px;
+      line-height: 21px;
+      label {
+        width: 20%;
+        float: left;
+        clear: left;
+        font-weight: bold;
+        color: #999;
+        margin: 0 0 15px;
+      }
+      input, select, textarea {
+        float: left;
+        clear: right;
+        margin: 0 0 15px;
+      }
+    }
+    .buttons {
+      overflow: hidden;
+      clear: both;
+      border-top: 1px solid #eee;
+      padding: 10px;
+      background: #fafafa;
+      border-bottom: 1px solid #eee;
+      input, button {
+        float: right;
+        margin: 0;
+      }
+    }
+  }
+}
+
+// records
+
+ul.records {
+  list-style: none;
+  border-top: 1px solid #eee;
+  li.record {
+    border-bottom: 1px solid #eee;
+    a, a:link, a:visited {
+      display: block;
+      padding: 10px;
+      color: $red;
+      background-image: -webkit-gradient(
+          linear,
+          left bottom,
+          left top,
+          color-stop(0.0, #f9f9f9),
+          color-stop(0.75, #fefefe)
+      );
+      background-image: -moz-linear-gradient(
+          center bottom,
+          #f9f9f9 0%,
+          #fefefe 75%
+      );
+      &.selected {
+        background: $blue;
+        color: #fff;
+        &:hover {
+          background: darken($blue,5%);
+          color: #fff;
+        }
+      }
+      &:hover {
+        background: #f9f9f9;
+      }
+    }
+  }
+}
