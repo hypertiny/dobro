@@ -24,7 +24,7 @@ end</code></pre>
 
 Bundle and restart your server, and you should find all you need at the URL you mounted Dobro at. In the above example, that would be "http://localhost:3000/admin/dobro":http://localhost:3000/admin/dobro.
 
-However, you'll almost certainly want to edit the views so the forms have only the fields you'd like.
+However, you'll almost certainly want to edit the views so the forms have only the fields you'd like. Keep reading for details on that.
 
 h2. Usage
 
@@ -57,4 +57,4 @@ Contributions are very much welcome - but keep in mind the following:
 
 h2. Credits
 
-Copyright (c) 2011 "Hyper Tiny":http://hypertiny.ie. The bulk of the work has been done by Brian Flanagan, Paul Campbell and Pat Allan, and the code is released under the open MIT Licence.
+Copyright (c) 2011 "Hyper Tiny":http://hypertiny.ie. The bulk of the work has been done by "Brian Flanagan":http://www.brianflanagan.org/, "Paul Campbell":http://www.pabcas.com/ and "Pat Allan":http://freelancing-gods.com/, and the code is released under the open MIT Licence.
