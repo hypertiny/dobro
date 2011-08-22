@@ -5,6 +5,11 @@ ActiveRecord::Schema.define do
     t.timestamps
   end
 
+  create_table(:tasks, :force => true) do |t|
+    t.string :description
+    t.boolean :approved
+  end
+
   create_table(:widgets, :force => true) do |t|
     t.string :name
     t.timestamps

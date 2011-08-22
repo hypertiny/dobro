@@ -14,4 +14,7 @@ RSpec.configure do |config|
   config.include Rails.application.routes.mounted_helpers
 
   config.use_transactional_fixtures = true
+
+  # enable filtering for examples
+  config.filter_run :wip => nil
 end
