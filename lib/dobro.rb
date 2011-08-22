@@ -19,4 +19,5 @@ module Dobro
 end
 
 require 'dobro/engine'
+require 'dobro/file_system_resolver'
 require 'dobro/version'

@@ -1,0 +1,12 @@
+<%= form_for current_record do |f| %>
+  <fieldset>
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </p>
+  </fieldset>
+
+  <fieldset>
+    <%= f.submit "Save This Widget" %>
+  </fieldset>
+<% end %>

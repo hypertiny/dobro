@@ -1,1 +1,1 @@
-Dobro.resources << :pages
+Dobro.resources << :pages << :widgets

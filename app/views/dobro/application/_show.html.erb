@@ -1,0 +1,6 @@
+<dl>
+  <% singular_class.column_names.each do |column| %>
+    <dt><%= column.titleize %></dt>
+    <dd><%= current_record.attributes[column] %></dd>
+  <% end %>
+</dl>

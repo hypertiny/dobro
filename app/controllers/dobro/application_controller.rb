@@ -14,6 +14,8 @@ class Dobro::ApplicationController < Dobro.controller_base
     end
   }
 
+  before_filter :prepend_view_paths
+
   def create
     if current_record.save
       redirect_to current_record
@@ -39,5 +41,11 @@ class Dobro::ApplicationController < Dobro.controller_base
 
   def default_resource
     params[:resource] || Dobro.resources.first
+  end
+
+  def prepend_view_paths
+    view_paths.dup.each do |path|
+      prepend_view_path Dobro::FileSystemResolver.new(path.to_s, resource)
+    end
   end
 end

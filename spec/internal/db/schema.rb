@@ -4,4 +4,9 @@ ActiveRecord::Schema.define do
     t.text   :content
     t.timestamps
   end
+
+  create_table(:widgets, :force => true) do |t|
+    t.string :name
+    t.timestamps
+  end
 end
