@@ -57,4 +57,4 @@ Contributions are very much welcome - but keep in mind the following:
 
 h2. Credits
 
-Copyright (c) 2011 Hyper Tiny. The bulk of the work has been done by Brian Flanagan, Paul Campbell and Pat Allan, and the code is released under the open MIT Licence.
+Copyright (c) 2011 "Hyper Tiny":http://hypertiny.ie. The bulk of the work has been done by Brian Flanagan, Paul Campbell and Pat Allan, and the code is released under the open MIT Licence.
