@@ -1,0 +1,54 @@
+h1. Dobro
+
+h2. Installation
+
+First things first, get the gem in your @Gemfile@:
+
+<pre><code>gem 'dobro', '~> 0.1.0'</code></pre>
+
+Then, decide where you want it amongst your routes:
+
+<pre><code># in your config/routes.rb
+mount Dobro::Engine => '/admin/dobro'</code></pre>
+
+And finally, tell Dobro which resources you'd like it to manage - this is best done in an initializer (you can call it whatever you like, but we call it dobro.rb):
+
+<pre><code># config/initializers/dobro.rb
+Dobro.resources << :articles << :pages << :users</code></pre>
+
+Bundle and restart your server, and you should find all you need at the URL you mounted Dobro at. In the above example, that would be "http://localhost:3000/admin/dobro":http://localhost:3000/admin/dobro.
+
+However, you'll almost certainly want to edit the views so the forms have only the fields you'd like.
+
+h2. Usage
+
+If you'd like to customise the views, just put your versions in @app/views/dobro@, broken down by resources. For example, a custom edit view for users would end up in @app/views/dobro/users/edit.html.erb@.
+
+The standard set of views for Dobro includes:
+
+* index
+* show
+* new
+* edit
+* delete
+
+Generally it's not recommended you edit those though - best to stick to the partials:
+
+* _form (used by both new and edit views)
+* _show (used by the show view)
+
+h2. Compatibility
+
+Developed for Rails 3.1 and Ruby 1.9. It will work on other Rubies, but not older versions of Rails.
+
+h2. Developing
+
+Contributions are very much welcome - but keep in mind the following:
+
+* Keep patches in a separate branch
+* Don't mess with the version or history file. We'll take care of that when the patch is merged in.
+* Write tests - look at the existing tests (particularly in @spec/acceptance@) for examples and guidance.
+
+h2. Credits
+
+Copyright (c) 2011 Hyper Tiny. The bulk of the work has been done by Brian Flanagan, Paul Campbell and Pat Allan, and the code is released under the open MIT Licence.
