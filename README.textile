@@ -11,10 +11,16 @@ Then, decide where you want it amongst your routes:
 <pre><code># in your config/routes.rb
 mount Dobro::Engine => '/admin/dobro'</code></pre>
 
-And finally, tell Dobro which resources you'd like it to manage - this is best done in an initializer (you can call it whatever you like, but we call it dobro.rb):
+Next, tell Dobro which resources you'd like it to manage - this is best done in an initializer (you can call it whatever you like, but we call it dobro.rb):
 
 <pre><code># config/initializers/dobro.rb
 Dobro.resources << :articles << :pages << :users</code></pre>
+
+And finally, make sure you add an @identifier@ method to the models you've marked as Dobro resources. This may be the name, email address, or title. Best to make it something unique.
+
+<pre><code>def identifier
+  name
+end</code></pre>
 
 Bundle and restart your server, and you should find all you need at the URL you mounted Dobro at. In the above example, that would be "http://localhost:3000/admin/dobro":http://localhost:3000/admin/dobro.
 
