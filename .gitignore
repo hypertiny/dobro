@@ -1,5 +1,7 @@
 *.gem
 .bundle
+.sass-cache
 Gemfile.lock
 pkg/*
 *.sqlite
+tmp
