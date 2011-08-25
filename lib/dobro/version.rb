@@ -1,3 +1,3 @@
 module Dobro
-  VERSION = '0.1.0alpha1'
+  VERSION = '0.1.0alpha2'
 end

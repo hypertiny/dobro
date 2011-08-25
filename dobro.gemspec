@@ -24,8 +24,8 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency     'decent_exposure', '~> 1.0'
   s.add_runtime_dependency     'sass-rails',      '~> 3.1.0.rc'
 
-  s.add_development_dependency 'rspec-rails', '2.6.1'
-  s.add_development_dependency 'capybara',    '0.4.1.2'
-  s.add_development_dependency 'combustion',  '0.1.1'
-  s.add_development_dependency 'sqlite3',     '1.3.4'
+  s.add_development_dependency 'rspec-rails', '~> 2.6.1'
+  s.add_development_dependency 'capybara',    '~> 1.0.0'
+  s.add_development_dependency 'combustion',  '~> 0.1.1'
+  s.add_development_dependency 'sqlite3',     '~> 1.3.4'
 end
