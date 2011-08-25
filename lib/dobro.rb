@@ -20,4 +20,5 @@ end
 
 require 'dobro/engine'
 require 'dobro/file_system_resolver'
+require 'dobro/routes'
 require 'dobro/version'

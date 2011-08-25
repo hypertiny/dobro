@@ -7,7 +7,7 @@ describe 'standard setup', :driver => :rack_test do
   end
 
   it "lists the pages" do
-    visit dobro.pages_path
+    visit pages_path
 
     page.should have_content('Pages')
     page.should have_content('About Us')
@@ -15,7 +15,7 @@ describe 'standard setup', :driver => :rack_test do
   end
 
   it "creates a new page" do
-    visit dobro.pages_path
+    visit pages_path
 
     click_link 'New Page'
 
@@ -27,7 +27,7 @@ describe 'standard setup', :driver => :rack_test do
   end
 
   it "edits an existing page" do
-    visit dobro.pages_path
+    visit pages_path
 
     click_link 'FAQ'
     click_link 'Edit'
@@ -39,7 +39,7 @@ describe 'standard setup', :driver => :rack_test do
   end
 
   it "deletes pages" do
-    visit dobro.pages_path
+    visit pages_path
 
     click_link 'FAQ'
     click_link 'Delete'

@@ -6,14 +6,14 @@ describe 'custom views', :driver => :rack_test do
   end
 
   it "uses the custom show template" do
-    visit dobro.widgets_path
+    visit widgets_path
     click_link 'Thing'
 
     page.should have_content('Widget Name: Thing')
   end
 
   it "uses the custom form partial as part of the new view" do
-    visit dobro.widgets_path
+    visit widgets_path
 
     click_link 'New Widget'
 
@@ -22,7 +22,7 @@ describe 'custom views', :driver => :rack_test do
   end
 
   it "uses the custom form partial as part of the edit view" do
-    visit dobro.widgets_path
+    visit widgets_path
 
     click_link 'Thing'
     click_link 'Edit'
