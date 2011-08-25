@@ -9,12 +9,12 @@ First things first, get the gem in your @Gemfile@:
 Then, decide where you want it amongst your routes:
 
 <pre><code># in your config/routes.rb
-mount Dobro::Engine => '/admin/dobro'</code></pre>
+dobro_for :articles, :pages, :users</code></pre>
 
-Next, tell Dobro which resources you'd like it to manage - this is best done in an initializer (you can call it whatever you like, but we call it dobro.rb):
+If you want a central dobro page (which defaults to the index page for the first resource that you're using with Dobro), just point a path to @dobro/application#index@:
 
-<pre><code># config/initializers/dobro.rb
-Dobro.resources << :articles << :pages << :users</code></pre>
+<pre><code># in your config/routes.rb
+match '/dobro' => 'dobro/application#index'</code></pre>
 
 And finally, make sure you add an @identifier@ method to the models you've marked as Dobro resources. This may be the name, email address, or title. Best to make it something unique.
 
@@ -22,9 +22,9 @@ And finally, make sure you add an @identifier@ method to the models you've marke
   name
 end</code></pre>
 
-Bundle and restart your server, and you should find all you need at the URL you mounted Dobro at. In the above example, that would be "http://localhost:3000/admin/dobro":http://localhost:3000/admin/dobro.
+Bundle and restart your server, and you're good to go. If you've provided a dobro index page (as covered above), then you can head straight to "http://localhost:3000/dobro":http://localhost:3000/dobro.
 
-However, you'll almost certainly want to edit the views so the forms have only the fields you'd like. Keep reading for details on that.
+Before you get too carried away though, you'll almost certainly want to edit the views so the forms have only the fields you'd like. Keep reading for details on that.
 
 h2. Usage
 
@@ -42,6 +42,16 @@ Generally it's not recommended you edit those though - best to stick to the part
 
 * _form (used by both new and edit views)
 * _show (used by the show view)
+
+And perhaps you want to add custom controllers into the mix? That's easy too. For the relevant resources, just give them their own @dobro_for@ call, and specify the custom controller:
+
+<pre><code>dobro_for :pages, :controller => 'pages'</code></pre>
+
+You can also add additional routes just like a standard @resources@ call:
+
+<pre><code>dobro_for :pages, :controller => 'pages' do
+  member { put :approve }
+end</code></pre>
 
 h2. Compatibility
 
