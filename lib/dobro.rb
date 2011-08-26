@@ -3,7 +3,7 @@ require 'action_controller'
 require 'decent_exposure'
 
 module Dobro
-  @resources = []
+  @resources = {}
   def self.resources
     @resources
   end
@@ -20,5 +20,6 @@ end
 
 require 'dobro/engine'
 require 'dobro/file_system_resolver'
+require 'dobro/resource'
 require 'dobro/routes'
 require 'dobro/version'

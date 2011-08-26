@@ -1,4 +1,4 @@
-<%= form_for current_record do |f| %>
+<%= form_for resource.route_for(current_record) do |f| %>
   <fieldset>
     <% singular_class.column_names.each do |column| %>
       <p>

@@ -18,10 +18,10 @@
         </header>
 
         <ul class="records">
-          <% Dobro.resources.each do |res| %>
+          <% Dobro.resources.each do |reference, res| %>
             <li class="record">
-              <%= link_to res, :class => (resource == res && 'selected') do %>
-                <h4><%= res.to_s.titleize %></h4>
+              <%= link_to res.index_route, :class => (resource == reference && 'selected') do %>
+                <h4><%= reference.to_s.titleize %></h4>
               <% end %>
             </li>
           <% end %>
@@ -33,14 +33,14 @@
           <h3><%= plural_class.titleize %></h3>
           <nav>
             <ul>
-              <li><%= link_to "New #{singular_class}", [:new, singular_reference.to_sym], :class => 'new' %></li>
+              <li><%= link_to "New #{singular_class}", resource.route_for(:new, singular_reference.to_sym), :class => 'new' %></li>
             </ul>
           </nav>
         </header>
 
         <ul class="records">
           <% records.each do |record| %>
-            <li class="record"><h5><%= link_to record.identifier, record %></h5></li>
+            <li class="record"><h5><%= link_to record.identifier, resource.route_for(record) %></h5></li>
           <% end %>
         </ul>
       </section>

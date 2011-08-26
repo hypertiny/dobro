@@ -1,10 +1,10 @@
 class Dobro::ApplicationController < Dobro.controller_base
   layout 'dobro'
 
-  expose(:resource)           { default_resource.to_sym }
+  expose(:resource)           { Dobro.resources[default_resource.to_sym] }
   expose(:singular_class)     { singular_reference.capitalize.constantize }
-  expose(:plural_class)       { resource.to_s.capitalize }
-  expose(:singular_reference) { resource.to_s.singularize }
+  expose(:plural_class)       { resource.reference.to_s.capitalize }
+  expose(:singular_reference) { resource.reference.to_s.singularize }
   expose(:records)            { singular_class.all }
   expose(:current_record)     {
     if params[:id]
@@ -18,7 +18,7 @@ class Dobro::ApplicationController < Dobro.controller_base
 
   def create
     if current_record.save
-      redirect_to current_record
+      redirect_to resource.route_for(current_record)
     else
       render 'new'
     end
@@ -26,7 +26,7 @@ class Dobro::ApplicationController < Dobro.controller_base
 
   def update
     if current_record.update_attributes(params[singular_reference])
-      redirect_to current_record
+      redirect_to resource.route_for(current_record)
     else
       render 'edit'
     end
@@ -34,13 +34,13 @@ class Dobro::ApplicationController < Dobro.controller_base
 
   def destroy
     current_record.destroy
-    redirect_to resource
+    redirect_to resource.index_route
   end
 
   private
 
   def default_resource
-    params[:resource] || Dobro.resources.first
+    params[:resource] || Dobro.resources.keys.first
   end
 
   def prepend_view_paths

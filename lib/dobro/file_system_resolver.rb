@@ -8,7 +8,7 @@ class Dobro::FileSystemResolver < ActionView::FileSystemResolver
   end
 
   def find_templates(name, prefix, partial, details)
-    prefix = "dobro/#{resource}" if prefix == 'dobro/application'
+    prefix = "dobro/#{resource.reference}" if prefix == 'dobro/application'
     super name, prefix, partial, details
   end
 end

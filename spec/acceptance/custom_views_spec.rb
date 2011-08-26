@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'custom views', :driver => :rack_test do
+describe 'custom views' do
   before :each do
     Widget.create! :name => 'Thing'
   end

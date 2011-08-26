@@ -8,4 +8,8 @@ Rails.application.routes.draw do
       put :approve
     end
   end
+
+  namespace :admin do
+    dobro_for :authors
+  end
 end
