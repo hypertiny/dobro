@@ -13,6 +13,7 @@ class Dobro::ApplicationController < Dobro.controller_base
       singular_class.new params[singular_reference]
     end
   }
+  expose(:exclusions)         { [:id,:created_at,:updated_at] }
 
   before_filter :prepend_view_paths
 

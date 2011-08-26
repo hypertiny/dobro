@@ -1,10 +1,9 @@
 <%= form_for resource.route_for(current_record) do |f| %>
   <fieldset>
     <% singular_class.column_names.each do |column| %>
-      <p>
-        <%= f.label column.to_sym %>
-        <%= f.text_field column.to_sym %>
-      </p>
+      <% next if exclusions.include? column.to_sym %>
+      <%= f.label column.to_sym %>
+      <%= f.text_field column.to_sym %>
     <% end %>
   </fieldset>
 
