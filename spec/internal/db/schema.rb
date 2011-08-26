@@ -4,6 +4,12 @@ ActiveRecord::Schema.define do
     t.timestamps
   end
 
+  create_table(:links, :force => true) do |t|
+    t.string :title
+    t.string :url
+    t.timestamps
+  end
+
   create_table(:pages, :force => true) do |t|
     t.string :name
     t.text   :content

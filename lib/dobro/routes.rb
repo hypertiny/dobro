@@ -4,7 +4,8 @@ class ActionDispatch::Routing::Mapper
     outer_module, @scope[:module] = @scope[:module], nil
 
     resources.each do |res|
-      Dobro.resources[res] = Dobro::Resource.new(res, :namespace => outer_module)
+
+      Dobro.resources[res] = Dobro::Resource.new res, :namespace => @scope[:as]
 
       self.resources res, dobro_options_for(res).merge(options) do
         member { get :delete }
