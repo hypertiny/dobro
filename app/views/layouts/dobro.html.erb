@@ -20,7 +20,7 @@
         <ul class="records">
           <% Dobro.resources.each do |reference, res| %>
             <li class="record">
-              <%= link_to res.index_route, :class => (resource == reference && 'selected') do %>
+              <%= link_to res.index_route, :class => (resource.reference == reference && 'selected') do %>
                 <h4><%= reference.to_s.titleize %></h4>
               <% end %>
             </li>
@@ -40,7 +40,7 @@
 
         <ul class="records">
           <% records.each do |record| %>
-            <li class="record"><h5><%= link_to record.identifier, resource.route_for(record) %></h5></li>
+            <li class="record"><h5><%= link_to record.identifier, resource.route_for(record), :class => (current_record.present? && current_record == record && 'selected')%></h5></li>
           <% end %>
         </ul>
       </section>
