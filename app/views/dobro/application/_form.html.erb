@@ -2,19 +2,7 @@
   <fieldset>
     <% standard_dobro_columns.each do |column| %>
       <%= f.label column.name.to_sym %>
-
-      <% case column.type.to_sym
-         when :integer %>
-        <%= f.text_field column.name.to_sym, :class => 'integer' %>
-      <% when :date %>
-        <%= f.text_field column.name.to_sym, :placeholder => 'yyyy-mm-dd' %>
-      <% when :text %>
-        <%= f.text_area column.name.to_sym %>
-      <% when :boolean %>
-        <%= f.check_box column.name.to_sym %>
-      <% else %>
-        <%= f.text_field column.name.to_sym %>
-      <% end %>
+      <%= dobro_field_for f, column %>
     <% end %>
   </fieldset>
 
