@@ -1,5 +1,6 @@
 class Dobro::ApplicationController < Dobro.controller_base
   layout 'dobro'
+  helper :dobro
 
   expose(:resource)           { Dobro.resources[default_resource.to_sym] }
   expose(:singular_class)     { singular_reference.capitalize.constantize }
@@ -13,7 +14,6 @@ class Dobro::ApplicationController < Dobro.controller_base
       singular_class.new params[singular_reference]
     end
   }
-  expose(:exclusions)         { [:id,:created_at,:updated_at] }
 
   before_filter :prepend_view_paths
 

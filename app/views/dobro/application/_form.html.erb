@@ -1,19 +1,18 @@
 <%= form_for resource.route_for(current_record) do |f| %>
   <fieldset>
-    <% singular_class.columns.each do |column| %>
-      <% next if exclusions.include? column.name.to_sym %>
+    <% standard_dobro_columns.each do |column| %>
       <%= f.label column.name.to_sym %>
-      
-      <% case column.type.to_sym 
-         when :integer %> 
+
+      <% case column.type.to_sym
+         when :integer %>
         <%= f.text_field column.name.to_sym, :class => 'integer' %>
-      <% when :date %> 
+      <% when :date %>
         <%= f.text_field column.name.to_sym, :placeholder => 'yyyy-mm-dd' %>
-      <% when :text %> 
+      <% when :text %>
         <%= f.text_area column.name.to_sym %>
-      <% when :boolean %> 
+      <% when :boolean %>
         <%= f.check_box column.name.to_sym %>
-      <% else %> 
+      <% else %>
         <%= f.text_field column.name.to_sym %>
       <% end %>
     <% end %>
