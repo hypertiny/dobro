@@ -4,10 +4,10 @@
   <nav>
     <ul>
       <li>
-        <%= link_to 'Edit', [:edit, current_record], :class => 'edit' %>
+        <%= link_to 'Edit', resource.route_for(:edit, current_record), :class => 'edit' %>
       </li>
       <li>
-        <%= link_to 'Delete', [:delete, current_record], :class => 'cancel' %>
+        <%= link_to 'Delete', resource.route_for(:delete, current_record), :class => 'cancel' %>
       </li>
     </ul>
   </nav>

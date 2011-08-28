@@ -1,14 +1,12 @@
-<%= form_for current_record do |f| %>
+<%= form_for resource.route_for(current_record) do |f| %>
   <fieldset>
-    <% singular_class.column_names.each do |column| %>
-      <p>
-        <%= f.label column.to_sym %>
-        <%= f.text_field column.to_sym %>
-      </p>
+    <% standard_dobro_columns.each do |column| %>
+      <%= f.label column.name.to_sym %>
+      <%= dobro_field_for f, column %>
     <% end %>
   </fieldset>
 
-  <fieldset>
+  <fieldset class="buttons">
     <%= f.submit "Save #{singular_class}" %>
   </fieldset>
 <% end %>

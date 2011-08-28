@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'standard setup', :driver => :rack_test do
+describe 'standard setup' do
   before :each do
     Page.create :name => 'About Us', :content => 'All you need to know'
     Page.create :name => 'FAQ',      :content => 'All you need to ask'

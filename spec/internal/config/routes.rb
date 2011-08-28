@@ -8,4 +8,12 @@ Rails.application.routes.draw do
       put :approve
     end
   end
+
+  namespace :admin do
+    dobro_for :authors
+  end
+
+  scope 'my', :as => 'my' do
+    dobro_for :links
+  end
 end

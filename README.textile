@@ -28,7 +28,9 @@ Before you get too carried away though, you'll almost certainly want to edit the
 
 h2. Usage
 
-If you'd like to customise the views, just put your versions in @app/views/dobro@, broken down by resources. For example, a custom edit view for users would end up in @app/views/dobro/users/edit.html.erb@.
+Customising the @_form.html.erb@ and @_show.html.erb@ partials for each of your resources is highly recommended. You can also add a @_dashboard.html.erb@, which will show up on resource indices.
+
+It's not recommended, but you're also welcome to customise the views. Just put your versions in @app/views/dobro@, broken down by resources. For example, a custom edit view for users would end up in @app/views/dobro/users/edit.html.erb@.
 
 The standard set of views for Dobro includes:
 
@@ -37,11 +39,6 @@ The standard set of views for Dobro includes:
 * new
 * edit
 * delete
-
-Generally it's not recommended you edit those though - best to stick to the partials:
-
-* _form (used by both new and edit views)
-* _show (used by the show view)
 
 And perhaps you want to add custom controllers into the mix? That's easy too. For the relevant resources, just give them their own @dobro_for@ call, and specify the custom controller:
 
