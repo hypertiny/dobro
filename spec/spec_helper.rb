@@ -3,16 +3,14 @@ require 'bundler'
 
 Bundler.require :default, :development
 
+require 'capybara/rspec'
+
 Combustion.initialize!
 
 require 'rspec/rails'
-require 'capybara/rspec'
+require 'capybara/rails'
 
 RSpec.configure do |config|
-  config.include Capybara
-  config.include Rails.application.routes.url_helpers
-  config.include Rails.application.routes.mounted_helpers
-
   config.use_transactional_fixtures = true
 
   # enable filtering for examples
